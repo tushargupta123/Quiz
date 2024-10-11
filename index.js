@@ -4,6 +4,7 @@ const app = express();
 require('dotenv').config();
 
 const userRoutes = require('./routes/user');
+const quizRoutes = require('./routes/quiz');
 
 mongoose.connect(process.env.MONGO_URL)
 .then(() => console.log("Connected to db"))
@@ -12,6 +13,7 @@ mongoose.connect(process.env.MONGO_URL)
 app.use(express.json());
 
 app.use('/user',userRoutes);
+app.use('/quiz',quizRoutes);
 
 const PORT = process.env.PORT;
 
